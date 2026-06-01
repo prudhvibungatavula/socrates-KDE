@@ -4,8 +4,8 @@
 ```
 <img width="2558" height="64" alt="maybar all on" src="https://github.com/user-attachments/assets/3299b5f8-742b-4492-831d-fb6cdbf845e9" />
 
+<img width="2559" height="1439" alt="main screen" src="https://github.com/user-attachments/assets/2946b199-178c-46af-8843-888091cb4a28" />
 
-![Uploading main screen.png…]()
 
 ---
 
