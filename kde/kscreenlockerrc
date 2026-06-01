@@ -1,0 +1,8 @@
+[Daemon]
+Timeout=60
+
+[Greeter][LnF][General]
+alwaysShowClock=false
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=/home/akash/Documents/wallpapers/neon-1.jpg
