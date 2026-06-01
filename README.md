@@ -36,7 +36,11 @@ socrates-KDE/
 
 ## Screenshots
 
+<img width="2559" height="1599" alt="main screen" src="https://github.com/user-attachments/assets/80abfce2-f28c-4c15-a0df-d3c88a8d44f1" />
+
 <img width="2559" height="1439" alt="2026-06-01_15-34" src="https://github.com/user-attachments/assets/0b880326-1ada-4739-b325-500873c9ab0b" />
+
+<img width="2558" height="64" alt="maybar all on" src="https://github.com/user-attachments/assets/1d476eae-c8d1-4387-9837-2ec4ef371b66" />
 
 
 ---
