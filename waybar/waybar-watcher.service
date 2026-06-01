@@ -1,0 +1,11 @@
+[Unit]
+Description=Waybar Desktop Switch Watcher
+After=graphical-session.target
+
+[Service]
+ExecStart=/home/akash/.config/waybar/scripts/waybar-watcher.sh
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,0 +1,212 @@
+// ──────────────────────────────────────────────────────────────────────────
+//  Waybar config
+//  vers. 1.0.0
+// ──────────────────────────────────────────────────────────────────────────
+
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-bottom": 0,
+  "height": 48,
+
+  // ── Modules Layout ───────────────────────────────────────────────
+  "modules-left": [
+    "clock",
+    "custom/power",
+    "network",
+    "custom/bt-status",
+    "custom/microphone",
+    "custom/vpn"
+  ],
+
+  "modules-center": [
+    "custom/workspace-1",
+    "custom/workspace-2",
+    "custom/asus-profile",
+    "custom/workspace-3",
+    "custom/workspace-4"
+  ],
+
+  "modules-right": [
+    "custom/battery",
+    "custom/volume",
+    "custom/brightness"
+  ],
+
+  // ── Clock ────────────────────────────────────────────────────────
+  "clock": {
+    "tooltip-format": "{calendar}",
+    "format-alt": "  {:%a, %d %b %Y}",
+    "format": "[   {:%I:%M %p} ]"
+  },
+
+  // ── Network ──────────────────────────────────────────────────────
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": ["[ 󰤯 ]", "[ 󰤟 ]", "[ 󰤢 ]", "[ 󰤥 ]", "[ 󰤨 ]"],
+    "format-ethernet": "󰀂",
+    "format-alt": "󱛇",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "nm-connection-editor",
+    "on-click-right": "~/.config/waybar/scripts/wifi-menu.sh",
+    "interval": 5,
+    "nospacing": 1
+  },
+
+  // ── Keyboard ─────────────────────────────────────────────────────
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": " {layout}"
+  },
+
+  "custom/bt-status": {
+    "exec": "~/.config/waybar/scripts/bluetooth-status.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+    "on-click-right": "~/.config/waybar/scripts/bluetooth-menu.sh",
+    "format": "{}",
+    "markup": "pango",
+    "tooltip": true
+  },
+
+  "custom/asus-profile": {
+    "exec": "~/.config/waybar/scripts/asus-profile.sh",
+    "interval": 3,
+    "format": "{}",
+    "markup": "pango",
+    "tooltip": true,
+    "tooltip-format": "Left: Switch GPU mode",
+    "on-click": "~/.config/waybar/scripts/asus-gpu-switch.sh"
+  },
+
+
+  // ── Battery (scripted + built-in) ────────────────────────────────
+  "custom/battery": {
+    "exec": "~/.config/waybar/scripts/battery.sh",
+    "return-type": "json",
+    "interval": 10,
+    "on-click": "xfce4-power-manager-settings"
+  },
+
+
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-icons": {
+      "charging": [
+        "󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"
+      ],
+      "default": [
+        "󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"
+      ]
+    },
+    "format-full": "Charged ",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "tooltip": true
+  },
+
+  // ── Microphone ───────────────────────────────────────────────────
+  "custom/microphone": {
+    "exec": "~/.config/waybar/scripts/mic.sh",
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "Mic Toggle",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+  },
+
+  // ── Brightness ───────────────────────────────────────────────────
+  "custom/brightness": {
+    "exec": "~/.config/waybar/scripts/brightness.sh",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "~/.config/waybar/scripts/brightness-toggle-display.sh",
+    "on-click-right": "~/.config/waybar/scripts/kbd-aura.sh",
+    "on-scroll-up": "~/.config/waybar/scripts/brightness-scroll-up.sh",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness-scroll-down.sh"
+  },
+
+  "backlight": {
+    "format": "󰛨  {percent}%",
+    "format-icons": ["󰃞","󰃟","󰃠","󰃝","󰃜","󰃛"],
+    "class": "flicker-bar",
+    "on-click": "~/.config/waybar/scripts/brightness-slider.sh"
+  },
+
+  // ── Workspaces (custom scripts) ──────────────────────────────────
+  "custom/workspace-1": {
+    "exec": "~/.config/waybar/scripts/workspaces/workspace-1.sh",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/workspaces/switch.sh 1",
+    "markup": "pango",
+    "tooltip": false
+  },
+  "custom/workspace-2": {
+    "exec": "~/.config/waybar/scripts/workspaces/workspace-2.sh",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/workspaces/switch.sh 2",
+    "markup": "pango",
+    "tooltip": false
+  },
+  "custom/workspace-3": {
+    "exec": "~/.config/waybar/scripts/workspaces/workspace-3.sh",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/workspaces/switch.sh 3",
+    "markup": "pango",
+    "tooltip": false
+  },
+  "custom/workspace-4": {
+    "exec": "~/.config/waybar/scripts/workspaces/workspace-4.sh",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/workspaces/switch.sh 4",
+    "markup": "pango",
+    "tooltip": false
+  },
+
+  "custom/volume": {
+    "exec": "~/.config/waybar/scripts/volume.sh",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "~/.config/waybar/scripts/audio-switcher.sh",
+    "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+
+
+  "custom/vpn": {
+    "exec": "~/.config/waybar/scripts/protonvpn-status.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "~/.config/waybar/scripts/protonvpn-toggle.sh",
+    "on-click-right": "~/.config/waybar/scripts/vpn-countries.sh",
+    "format": "{}",
+    "markup": "pango",
+    "tooltip": true
+  },
+
+  // ── Power ────────────────────────────────────────────────────────
+  "custom/power": {
+    "format": "[ 󰤆 ]",
+    "tooltip": true,
+    "tooltip-format": "Power Menu",
+    "on-click": "~/.config/waybar/scripts/powermenu.sh"
+  },
+
+  // ── Spacer ───────────────────────────────────────────────────────
+  "custom/squares": {
+    "format": " ",
+    "tooltip": false
+  }
+}
+

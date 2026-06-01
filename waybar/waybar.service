@@ -1,0 +1,13 @@
+[Unit]
+Description=Waybar
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/waybar
+ExecReload=/usr/bin/pkill -SIGUSR2 waybar
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target
