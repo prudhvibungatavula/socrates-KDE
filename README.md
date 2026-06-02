@@ -9,11 +9,11 @@
 
 ## The Story
 
-I have an ASUS Zephyrus G16 2024 — an OLED laptop with an Intel iGPU, an NVIDIA dGPU, and an ASUS MUX switch. When I got into Linux ricing, everything I found online was for Hyprland. The dotfiles, the guides, the YouTube videos — all Hyprland. Nobody was documenting how to do any of this on KDE Plasma Wayland.
+I have an ASUS Zephyrus G16 2024 - an OLED laptop with an Intel iGPU, an NVIDIA dGPU, and an ASUS MUX switch. When I got into Linux ricing, everything I found online was for Hyprland. The dotfiles, the guides, the YouTube videos - all Hyprland. Nobody was documenting how to do any of this on KDE Plasma Wayland.
 
-I didn't want to switch to Hyprland. KDE gives me things Hyprland doesn't — stable app installs, Plasma widgets, better battery life out of the box, and a proper settings GUI when I need it. But I still wanted my desktop to look and feel like a proper rice. Inspired by PewDiePie's Arch/Hyprland setup, I decided to figure it out myself.
+I didn't want to switch to Hyprland. KDE gives me things Hyprland doesn't - stable app installs, Plasma widgets, better battery life out of the box, and a proper settings GUI when I need it. But I still wanted my desktop to look and feel like a proper rice. Inspired by PewDiePie's Arch/Hyprland setup, I decided to figure it out myself.
 
-The OLED screen added another problem. Static UI elements sitting in the same position for hours cause burn-in on OLED panels. I couldn't find a single documented solution for preventing Waybar burn-in on KDE Wayland. So I built one myself — a watcher script that restarts Waybar on every workspace switch, cycling the pixels under the bar and preventing any static retention. It doubles as a slide-down animation trigger, so the bar drops from the top every time you switch desktops.
+The OLED screen added another problem. Static UI elements sitting in the same position for hours cause burn-in on OLED panels. I couldn't find a single documented solution for preventing Waybar burn-in on KDE Wayland. So I built one myself - a watcher script that restarts Waybar on every workspace switch, cycling the pixels under the bar and preventing any static retention. It doubles as a slide-down animation trigger, so the bar drops from the top every time you switch desktops.
 
 Everything in this repo was figured out from scratch. No existing dotfiles worked out of the box for this setup.
 
